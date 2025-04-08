@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Change this to your desired domain and artifact -->
+    <groupId>com.subject</groupId>
+    <artifactId>IntegrationTests</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+
+    <parent>
+        <groupId>com.subject</groupId>
+        <artifactId>project-name</artifactId>
+        <version>1.0</version>
+        <relativePath>../pom.xml</relativePath> <!-- Path to the parent pom -->
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>21</java.version>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!-- JUnit dependency for testing -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.10.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.subject</groupId>
+            <artifactId>ModuleA</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <!-- Add any other dependencies your integration tests need -->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- maven-surefire-plugin for running unit tests -->
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.0</version>
+            </plugin>
+
+            <!-- maven-failsafe-plugin for running integration tests -->
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Add any other plugins you need here -->
+        </plugins>
+    </build>
+</project>
